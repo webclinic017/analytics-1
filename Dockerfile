@@ -3,7 +3,7 @@ FROM ubuntu:20.04
 RUN apt update && \
     apt install -y --no-install-recommends software-properties-common wget && \
     add-apt-repository ppa:deadsnakes/ppa && \
-    apt install -y --no-install-recommends python3.9 python3.9-distutils libpq-dev postgresql-client postgresql-client-common
+    apt install -y --no-install-recommends python3.9 python3.9-distutils libpq-dev postgresql-client postgresql-client-common git
 
 WORKDIR /app
 
