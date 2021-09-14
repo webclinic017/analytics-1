@@ -54,15 +54,21 @@ class MaskAddon:
                    symbol: Union[Symbol, str] = None) -> np.ndarray:
         """Mask is true when price below `line`"""
         symbol = self.ts.expect_one_symbol(symbol)
+        if isinstance(line, str):
+            line = self.ts.get_raw_df()[line]
+
         df = self.ts.get_raw_df()[symbol]
         mask = df.values < line
         return mask
 
     def above_line(self,
-                   line: Union[float, np.ndarray, pd.DataFrame, TimeSeries],
+                   line: Union[str, float, np.ndarray, pd.DataFrame, TimeSeries],
                    symbol: Union[Symbol, str] = None) -> np.ndarray:
         """Mask is true when price above `line`"""
         symbol = self.ts.expect_one_symbol(symbol)
+        if isinstance(line, str):
+            line = self.ts.get_raw_df()[line]
+
         df = self.ts.get_raw_df()[symbol].to_frame(symbol)
         mask = df.values > line
         return mask
