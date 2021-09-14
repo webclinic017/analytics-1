@@ -498,6 +498,12 @@ class TimeSeries:
         else:
             return float(val)
 
+    def sma(self, window: Duration, symbol: Union[Symbol, str] = None):
+        symbol = self.expect_one_symbol(symbol)
+        df = self.get_df(framed=False)
+        data = df[symbol].rolling(pd.Timedelta(window)).mean()
+        return TimeSeries.from_df(data)
+
     def set_pointer(self, pointer: DateTime):
         """Sets pointer"""
         self._pointer = pd.Timestamp(pointer)
@@ -688,6 +694,33 @@ class TimeSeries:
         """
 
         return len(self._df)
+
+    def __rmul__(self, other):
+        return self.__mul__(other)
+
+    def __rtruediv__(self, other):
+        return self.__truediv__(other)
+
+    def __radd__(self, other):
+        return self.__add__(other)
+
+    def __rsub__(self, other):
+        return self.__sub__(other)
+
+    def __gt__(self, other):
+        symbol = self.expect_one_symbol(None)
+        if isinstance(other, TimeSeries):
+            other_symbol = other.expect_one_symbol(None)
+            return self.get_raw_df()[symbol] > other.get_raw_df()[other_symbol]
+        raise NotImplementedError()
+
+    def __lt__(self, other):
+        symbol = self.expect_one_symbol(None)
+        if isinstance(other, TimeSeries):
+            other_symbol = other.expect_one_symbol(None)
+            return self.get_raw_df()[symbol] < other.get_raw_df()[other_symbol]
+        raise NotImplementedError()
+
 
     def __mul__(self, other):
         """Multiplies timeseries by timeseries, float, numpy array or pandas series/frame

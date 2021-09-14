@@ -80,6 +80,7 @@ class Exchange(enum.Enum):
     YFinance = "YFinance"
     Bitmex = "Bitmex"
     Barchart = "Barchart"
+    BarchartDaily = "BarchartDaily"
     Finam = "Finam"
 
 
