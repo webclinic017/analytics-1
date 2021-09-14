@@ -31,7 +31,6 @@ class DataBase:
 
     @classmethod
     async def start(cls):
-        db_password =
         cls._conn = await asyncpg.connect(user=os.getenv('DATABASE_USER'),
                                           password=os.getenv('DATABASE_PASSWORD'),
                                           database=os.getenv('DATABASE_NAME'),
