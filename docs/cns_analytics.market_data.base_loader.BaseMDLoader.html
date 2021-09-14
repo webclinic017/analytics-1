@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cns_analytics.market_data.base_loader.BaseMDLoader : API documentation</title>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header navbar-brand">
+          cns_analytics
+          <a href="index.html">API Documentation</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code><code><a href="cns_analytics.html">cns_analytics</a></code>.<code><a href="cns_analytics.market_data.html">market_data</a></code>.<code><a href="cns_analytics.market_data.base_loader.html">base_loader</a></code>.<code><a href="cns_analytics.market_data.base_loader.BaseMDLoader.html">BaseMDLoader</a></code></code></h1>
+        <div id="showPrivate">
+          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+        </div>
+      </div>
+
+      <div class="categoryHeader">
+        class documentation
+      </div>
+
+      <div class="extrasDocstring">
+        <p><code><span class="py-keyword">class</span> <span class="py-defname">BaseMDLoader</span>(<span title="abc.ABC">abc.ABC</span>):</code></p><p>Known subclasses: <code><a href="cns_analytics.market_data.barchart_file_loader.BarchartFileLoader.html">cns_analytics.market_data.barchart_file_loader.BarchartFileLoader</a></code>, <code><a href="cns_analytics.market_data.binance_futures_loader.BinanceFuturesLoader.html">cns_analytics.market_data.binance_futures_loader.BinanceFuturesLoader</a></code>, <code><a href="cns_analytics.market_data.bitmex_loader.BitmexLoader.html">cns_analytics.market_data.bitmex_loader.BitmexLoader</a></code>, <code><a href="cns_analytics.market_data.finam_loader.FinamLoader.html">cns_analytics.market_data.finam_loader.FinamLoader</a></code>, <code><a href="cns_analytics.market_data.yfinance_loader.YFinanceLoader.html">cns_analytics.market_data.yfinance_loader.YFinanceLoader</a></code></p>
+        <p><a href="classIndex.html#cns_analytics.market_data.base_loader.BaseMDLoader">View In Hierarchy</a></p>
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>Abstract Base Market Data Loader Class</p>
+<blockquote>
+Always use in context manager!
+Always return "ts" as CLOSE time!!!</blockquote>
+<dl class="rst-docutils">
+<dt>Generalizes process of fetching market data:</dt>
+<dd><ul class="rst-first rst-last rst-simple">
+<li>define time range</li>
+<li>find already loaded market data</li>
+<li>download data inside time range that was not already loaded</li>
+<li>check data is unique</li>
+<li>sort data</li>
+<li>save data</li>
+</ul>
+</dd>
+</dl>
+</div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id44">
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__">__init__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#logger">logger</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#convert_symbol_to_external">convert_symbol_to_external</a></code></td>
+    <td><span>Returns name/id of external symbol given internal one</span></td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#convert_symbol_to_internal">convert_symbol_to_internal</a></code></td>
+    <td><span>Returns interval symbol given name/id of external</span></td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#get_step_for_resolution">get_step_for_resolution</a></code></td>
+    <td><span>Returns how much of market data can be loaded in one request based on resolution and md_type</span></td>
+  </tr><tr class="method">
+    
+    <td>Async Method</td>
+    <td><code><a href="#fetch">fetch</a></code></td>
+    <td><span>Fetches new market data and saves it (sorted and unique)</span></td>
+  </tr><tr class="method">
+    
+    <td>Async Method</td>
+    <td><code><a href="#get_supported_symbols">get_supported_symbols</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Async Method</td>
+    <td><code><a href="#__aenter__">__aenter__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Async Method</td>
+    <td><code><a href="#__aexit__">__aexit__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable private">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#_supported_symbols">_supported_symbols</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="staticmethod private">
+    
+    <td>Static Method</td>
+    <td><code><a href="#_get_database_table_name">_get_database_table_name</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="staticmethod private">
+    
+    <td>Async Static Method</td>
+    <td><code><a href="#_load_supported_symbols">_load_supported_symbols</a></code></td>
+    <td><span>Returns list of supported symbols or None</span></td>
+  </tr><tr class="staticmethod private">
+    
+    <td>Static Method</td>
+    <td><code><a href="#_make_data_unique">_make_data_unique</a></code></td>
+    <td><span>Takes data, returns unique data</span></td>
+  </tr><tr class="staticmethod private">
+    
+    <td>Static Method</td>
+    <td><code><a href="#_sort_data">_sort_data</a></code></td>
+    <td><span>Takes data, returns sorted data</span></td>
+  </tr><tr class="method private">
+    
+    <td>Async Method</td>
+    <td><code><a href="#_fetch_wrapper">_fetch_wrapper</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="staticmethod private">
+    
+    <td>Static Method</td>
+    <td><code><a href="#_should_load">_should_load</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method private">
+    
+    <td>Async Method</td>
+    <td><code><a href="#_fetch">_fetch</a></code></td>
+    <td><span>Define market data loading process here</span></td>
+  </tr><tr class="method private">
+    
+    <td>Async Method</td>
+    <td><code><a href="#_get_already_saved_range">_get_already_saved_range</a></code></td>
+    <td><span>Returns timestamps of first and last occurrence of data for specified symbol</span></td>
+  </tr><tr class="method private">
+    
+    <td>Async Method</td>
+    <td><code><a href="#_save_data">_save_data</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="baseclassvariable private">
+  
+  <a name="cns_analytics.market_data.base_loader.BaseMDLoader._supported_symbols">
+    
+  </a>
+  <a name="_supported_symbols">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_supported_symbols</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div> (type: <code>dict</code>)
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.market_data.base_loader.BaseMDLoader.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="cns_analytics.market_data.binance_futures_loader.BinanceFuturesLoader.html">cns_analytics.market_data.binance_futures_loader.BinanceFuturesLoader</a></code>, <code><a href="cns_analytics.market_data.bitmex_loader.BitmexLoader.html">cns_analytics.market_data.bitmex_loader.BitmexLoader</a></code>, <code><a href="cns_analytics.market_data.finam_loader.FinamLoader.html">cns_analytics.market_data.finam_loader.FinamLoader</a></code>, <code><a href="cns_analytics.market_data.yfinance_loader.YFinanceLoader.html">cns_analytics.market_data.yfinance_loader.YFinanceLoader</a></code></div>
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  <a name="cns_analytics.market_data.base_loader.BaseMDLoader.logger">
+    
+  </a>
+  <a name="logger">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">logger</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basestaticmethod private">
+  
+  <a name="cns_analytics.market_data.base_loader.BaseMDLoader._get_database_table_name">
+    
+  </a>
+  <a name="_get_database_table_name">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_get_database_table_name</span>(md_type):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">md_type</td><td><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.MDType.html">MDType</a></code>)</td></tr></table></div>
+  </div>
+</div><div class="basestaticmethod private">
+  
+  <a name="cns_analytics.market_data.base_loader.BaseMDLoader._load_supported_symbols">
+    
+  </a>
+  <a name="_load_supported_symbols">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">async def</span> <span class="py-defname">_load_supported_symbols</span>():
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="cns_analytics.market_data.barchart_file_loader.BarchartFileLoader.html">cns_analytics.market_data.barchart_file_loader.BarchartFileLoader</a></code>, <code><a href="cns_analytics.market_data.binance_futures_loader.BinanceFuturesLoader.html">cns_analytics.market_data.binance_futures_loader.BinanceFuturesLoader</a></code>, <code><a href="cns_analytics.market_data.bitmex_loader.BitmexLoader.html">cns_analytics.market_data.bitmex_loader.BitmexLoader</a></code></div>
+    
+    <div>Returns list of supported symbols or None<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2"><span class="undocumented">Undocumented</span> (type: <code>List[<a href="cns_analytics.entities.Symbol.html">Symbol</a>]</code>)</td></tr></table></div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  <a name="cns_analytics.market_data.base_loader.BaseMDLoader.convert_symbol_to_external">
+    
+  </a>
+  <a name="convert_symbol_to_external">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">convert_symbol_to_external</span>(internal_symbol):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Returns name/id of external symbol given internal one<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">internal_symbol</td><td><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.Symbol.html">Symbol</a></code>)</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2"><span class="undocumented">Undocumented</span> (type: <code>str</code>)</td></tr></table></div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  <a name="cns_analytics.market_data.base_loader.BaseMDLoader.convert_symbol_to_internal">
+    
+  </a>
+  <a name="convert_symbol_to_internal">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">convert_symbol_to_internal</span>(external_symbol):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Returns interval symbol given name/id of external<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">external_symbol</td><td><span class="undocumented">Undocumented</span> (type: <code>str</code>)</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2"><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.Symbol.html">Symbol</a></code>)</td></tr></table></div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  <a name="cns_analytics.market_data.base_loader.BaseMDLoader.get_step_for_resolution">
+    
+  </a>
+  <a name="get_step_for_resolution">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />@abc.abstractmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">get_step_for_resolution</span>(md_type, resolution):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="cns_analytics.market_data.barchart_file_loader.BarchartFileLoader.html">cns_analytics.market_data.barchart_file_loader.BarchartFileLoader</a></code>, <code><a href="cns_analytics.market_data.binance_futures_loader.BinanceFuturesLoader.html">cns_analytics.market_data.binance_futures_loader.BinanceFuturesLoader</a></code>, <code><a href="cns_analytics.market_data.bitmex_loader.BitmexLoader.html">cns_analytics.market_data.bitmex_loader.BitmexLoader</a></code>, <code><a href="cns_analytics.market_data.finam_loader.FinamLoader.html">cns_analytics.market_data.finam_loader.FinamLoader</a></code>, <code><a href="cns_analytics.market_data.yfinance_loader.YFinanceLoader.html">cns_analytics.market_data.yfinance_loader.YFinanceLoader</a></code></div>
+    
+    <div>Returns how much of market data can be loaded in one request
+based on resolution and md_type<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">md_type</td><td><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.MDType.html">MDType</a></code>)</td></tr><tr><td></td><td class="fieldArg">resolution</td><td><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.Resolution.html">Resolution</a></code>)</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2"><span class="undocumented">Undocumented</span> (type: <code>timedelta</code>)</td></tr></table></div>
+  </div>
+</div><div class="basestaticmethod private">
+  
+  <a name="cns_analytics.market_data.base_loader.BaseMDLoader._make_data_unique">
+    
+  </a>
+  <a name="_make_data_unique">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_make_data_unique</span>(collected_data):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Takes data, returns unique data<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">collected_data</td><td><span class="undocumented">Undocumented</span> (type: <code>List[Dict]</code>)</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2"><span class="undocumented">Undocumented</span> (type: <code>List[Dict]</code>)</td></tr></table></div>
+  </div>
+</div><div class="basestaticmethod private">
+  
+  <a name="cns_analytics.market_data.base_loader.BaseMDLoader._sort_data">
+    
+  </a>
+  <a name="_sort_data">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_sort_data</span>(collected_data):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Takes data, returns sorted data<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">collected_data</td><td><span class="undocumented">Undocumented</span> (type: <code>List[Dict]</code>)</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2"><span class="undocumented">Undocumented</span> (type: <code>List[Dict]</code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.market_data.base_loader.BaseMDLoader.fetch">
+    
+  </a>
+  <a name="fetch">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">async def</span> <span class="py-defname">fetch</span>(self, symbol, md_type, duration, resolution):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Fetches new market data and saves it (sorted and unique)<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">symbol</td><td><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.Symbol.html">Symbol</a></code>)</td></tr><tr><td></td><td class="fieldArg">md_type</td><td><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.MDType.html">MDType</a></code>)</td></tr><tr><td></td><td class="fieldArg">duration</td><td><span class="undocumented">Undocumented</span> (type: <code>Union[timedelta, pd.Timedelta]</code>)</td></tr><tr><td></td><td class="fieldArg">resolution</td><td><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.Resolution.html">Resolution</a></code>)</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2"><span class="undocumented">Undocumented</span> (type: <code>bool</code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  <a name="cns_analytics.market_data.base_loader.BaseMDLoader._fetch_wrapper">
+    
+  </a>
+  <a name="_fetch_wrapper">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">async def</span> <span class="py-defname">_fetch_wrapper</span>(self, *args, **kwargs):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basestaticmethod private">
+  
+  <a name="cns_analytics.market_data.base_loader.BaseMDLoader._should_load">
+    
+  </a>
+  <a name="_should_load">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_should_load</span>(saved_first, saved_last, start, end):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">saved_first</td><td><span class="undocumented">Undocumented</span> (type: <code>datetime</code>)</td></tr><tr><td></td><td class="fieldArg">saved_last</td><td><span class="undocumented">Undocumented</span> (type: <code>datetime</code>)</td></tr><tr><td></td><td class="fieldArg">start</td><td><span class="undocumented">Undocumented</span> (type: <code>datetime</code>)</td></tr><tr><td></td><td class="fieldArg">end</td><td><span class="undocumented">Undocumented</span> (type: <code>datetime</code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  <a name="cns_analytics.market_data.base_loader.BaseMDLoader._fetch">
+    
+  </a>
+  <a name="_fetch">
+    
+  </a>
+  <div class="functionHeader">
+    @abc.abstractmethod<br />
+    <span class="py-keyword">async def</span> <span class="py-defname">_fetch</span>(self, symbol, md_type, start, end, resolution):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="cns_analytics.market_data.barchart_file_loader.BarchartFileLoader.html">cns_analytics.market_data.barchart_file_loader.BarchartFileLoader</a></code>, <code><a href="cns_analytics.market_data.binance_futures_loader.BinanceFuturesLoader.html">cns_analytics.market_data.binance_futures_loader.BinanceFuturesLoader</a></code>, <code><a href="cns_analytics.market_data.bitmex_loader.BitmexLoader.html">cns_analytics.market_data.bitmex_loader.BitmexLoader</a></code>, <code><a href="cns_analytics.market_data.finam_loader.FinamLoader.html">cns_analytics.market_data.finam_loader.FinamLoader</a></code>, <code><a href="cns_analytics.market_data.yfinance_loader.YFinanceLoader.html">cns_analytics.market_data.yfinance_loader.YFinanceLoader</a></code></div>
+    
+    <div><p>Define market data loading process here</p>
+<p>Data will be sorted on key "ts", so every row in dict must have that key</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">symbol</td><td><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.Symbol.html">Symbol</a></code>)</td></tr><tr><td></td><td class="fieldArg">md_type</td><td><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.MDType.html">MDType</a></code>)</td></tr><tr><td></td><td class="fieldArg">start</td><td><span class="undocumented">Undocumented</span> (type: <code>datetime</code>)</td></tr><tr><td></td><td class="fieldArg">end</td><td><span class="undocumented">Undocumented</span> (type: <code>datetime</code>)</td></tr><tr><td></td><td class="fieldArg">resolution</td><td><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.Resolution.html">Resolution</a></code>)</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2"><span class="undocumented">Undocumented</span> (type: <code>List[Dict]</code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  <a name="cns_analytics.market_data.base_loader.BaseMDLoader._get_already_saved_range">
+    
+  </a>
+  <a name="_get_already_saved_range">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">async def</span> <span class="py-defname">_get_already_saved_range</span>(self, symbol, md_type):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Returns timestamps of first and last occurrence of data for specified symbol<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">symbol</td><td><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.Symbol.html">Symbol</a></code>)</td></tr><tr><td></td><td class="fieldArg">md_type</td><td><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.MDType.html">MDType</a></code>)</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2"><span class="undocumented">Undocumented</span> (type: <code>Tuple[datetime, datetime]</code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod private">
+  
+  <a name="cns_analytics.market_data.base_loader.BaseMDLoader._save_data">
+    
+  </a>
+  <a name="_save_data">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">async def</span> <span class="py-defname">_save_data</span>(self, md_type, symbol, collected_data):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">md_type</td><td><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.MDType.html">MDType</a></code>)</td></tr><tr><td></td><td class="fieldArg">symbol</td><td><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.Symbol.html">Symbol</a></code>)</td></tr><tr><td></td><td class="fieldArg">collected_data</td><td><span class="undocumented">Undocumented</span> (type: <code>List[Dict]</code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.market_data.base_loader.BaseMDLoader.get_supported_symbols">
+    
+  </a>
+  <a name="get_supported_symbols">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">async def</span> <span class="py-defname">get_supported_symbols</span>(self, md_type):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2"><span class="undocumented">Undocumented</span> (type: <code>List[<a href="cns_analytics.entities.Symbol.html">Symbol</a>]</code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.market_data.base_loader.BaseMDLoader.__aenter__">
+    
+  </a>
+  <a name="__aenter__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">async def</span> <span class="py-defname">__aenter__</span>(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2"><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.market_data.base_loader.BaseMDLoader.html">BaseMDLoader</a></code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.market_data.base_loader.BaseMDLoader.__aexit__">
+    
+  </a>
+  <a name="__aexit__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">async def</span> <span class="py-defname">__aexit__</span>(self, exc_type, exc_val, exc_tb):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="cns_analytics.market_data.barchart_file_loader.BarchartFileLoader.html">cns_analytics.market_data.barchart_file_loader.BarchartFileLoader</a></code>, <code><a href="cns_analytics.market_data.binance_futures_loader.BinanceFuturesLoader.html">cns_analytics.market_data.binance_futures_loader.BinanceFuturesLoader</a></code>, <code><a href="cns_analytics.market_data.bitmex_loader.BitmexLoader.html">cns_analytics.market_data.bitmex_loader.BitmexLoader</a></code>, <code><a href="cns_analytics.market_data.finam_loader.FinamLoader.html">cns_analytics.market_data.finam_loader.FinamLoader</a></code>, <code><a href="cns_analytics.market_data.yfinance_loader.YFinanceLoader.html">cns_analytics.market_data.yfinance_loader.YFinanceLoader</a></code></div>
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cns_analytics, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> 21.2.2 at 2021-09-14 11:42:58.
+      </address>
+
+    </div>
+
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cns_analytics.statistics.time_till_loss : API documentation</title>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header navbar-brand">
+          cns_analytics
+          <a href="index.html">API Documentation</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="module"><code><code><a href="cns_analytics.html">cns_analytics</a></code>.<code><a href="cns_analytics.statistics.html">statistics</a></code>.<code><a href="cns_analytics.statistics.time_till_loss.html">time_till_loss</a></code></code></h1>
+        <div id="showPrivate">
+          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+        </div>
+      </div>
+
+      <div class="categoryHeader">
+        module documentation
+      </div>
+
+      <div class="extrasDocstring">
+        
+        <p></p>
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p class="undocumented">Undocumented</p></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id60">
+  
+  <tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#running_max">running_max</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#running_min">running_min</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="class">
+    
+    <td>Class</td>
+    <td><code><a href="cns_analytics.statistics.time_till_loss.TimeTillLossReport.html">TimeTillLossReport</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#get_next_loss_time">get_next_loss_time</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#get_time_till_loss">get_time_till_loss</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_get_loss_points">_get_loss_points</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basefunction">
+  
+  <a name="cns_analytics.statistics.time_till_loss.running_max">
+    
+  </a>
+  <a name="running_max">
+    
+  </a>
+  <div class="functionHeader">
+    @numba.njit()<br />
+    <span class="py-keyword">def</span> <span class="py-defname">running_max</span>(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cns_analytics.statistics.time_till_loss.running_min">
+    
+  </a>
+  <a name="running_min">
+    
+  </a>
+  <div class="functionHeader">
+    @numba.njit()<br />
+    <span class="py-keyword">def</span> <span class="py-defname">running_min</span>(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basefunction private">
+  
+  <a name="cns_analytics.statistics.time_till_loss._get_loss_points">
+    
+  </a>
+  <a name="_get_loss_points">
+    
+  </a>
+  <div class="functionHeader">
+    @numba.njit<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_get_loss_points</span>(arr, width):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">arr</td><td><span class="undocumented">Undocumented</span> (type: <code>np.ndarray</code>)</td></tr><tr><td></td><td class="fieldArg">width</td><td><span class="undocumented">Undocumented</span> (type: <code>float</code>)</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cns_analytics.statistics.time_till_loss.get_next_loss_time">
+    
+  </a>
+  <a name="get_next_loss_time">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_next_loss_time</span>(df, width, reverse=False):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cns_analytics.statistics.time_till_loss.get_time_till_loss">
+    
+  </a>
+  <a name="get_time_till_loss">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_time_till_loss</span>(ts, width, max_days=500, framed=False, symbol='SPREAD', step='7d', calc_past=False, past_width=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">ts</td><td><span class="undocumented">Undocumented</span> (type: <code>TimeSeries</code>)</td></tr><tr><td></td><td class="fieldArg">width</td><td><span class="undocumented">Undocumented</span> (type: <code>float</code>)</td></tr><tr><td></td><td class="fieldArg">max_days</td><td><span class="undocumented">Undocumented</span> (type: <code>int</code>)</td></tr><tr><td></td><td class="fieldArg">framed</td><td><span class="undocumented">Undocumented</span></td></tr><tr><td></td><td class="fieldArg">symbol</td><td><span class="undocumented">Undocumented</span></td></tr><tr><td></td><td class="fieldArg">step</td><td><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.html#Duration">Duration</a></code>)</td></tr><tr><td></td><td class="fieldArg">calc_past</td><td><span class="undocumented">Undocumented</span> (type: <code>bool</code>)</td></tr><tr><td></td><td class="fieldArg">past_width</td><td><span class="undocumented">Undocumented</span> (type: <code>Optional[float]</code>)</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2"><span class="undocumented">Undocumented</span> (type: <code>List[<a href="cns_analytics.statistics.time_till_loss.TimeTillLossReport.html">TimeTillLossReport</a>]</code>)</td></tr></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cns_analytics, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> 21.2.2 at 2021-09-14 11:42:58.
+      </address>
+
+    </div>
+
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

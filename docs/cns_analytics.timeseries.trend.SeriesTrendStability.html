@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cns_analytics.timeseries.trend.SeriesTrendStability : API documentation</title>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header navbar-brand">
+          cns_analytics
+          <a href="index.html">API Documentation</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code><code><a href="cns_analytics.html">cns_analytics</a></code>.<code><a href="cns_analytics.timeseries.html">timeseries</a></code>.<code><a href="cns_analytics.timeseries.trend.html">trend</a></code>.<code><a href="cns_analytics.timeseries.trend.SeriesTrendStability.html">SeriesTrendStability</a></code></code></h1>
+        <div id="showPrivate">
+          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+        </div>
+      </div>
+
+      <div class="categoryHeader">
+        class documentation
+      </div>
+
+      <div class="extrasDocstring">
+        <p><code><span class="py-keyword">class</span> <span class="py-defname">SeriesTrendStability</span>:</code></p>
+        <p><a href="classIndex.html#cns_analytics.timeseries.trend.SeriesTrendStability">View In Hierarchy</a></p>
+      </div>
+
+      <div class="moduleDocstring">
+        <div>Works with trend of series</div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id81">
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__">__init__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#series">series</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#window_backward">window_backward</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#pointer">pointer</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#symbol">symbol</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#is_past_stable">is_past_stable</a></code></td>
+    <td><span>Returns whether 90'th percentile of difference of trend and past series is smaller than threshold</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#get_future_stability">get_future_stability</a></code></td>
+    <td><span>Returns duration while price didn't fall below threshold from running high</span></td>
+  </tr><tr class="method private">
+    
+    <td>Method</td>
+    <td><code><a href="#_is_series_stable">_is_series_stable</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.trend.SeriesTrendStability.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, series, window_backward, symbol):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">series</td><td><span class="undocumented">Undocumented</span> (type: <code>TimeSeries</code>)</td></tr><tr><td></td><td class="fieldArg">window_backward</td><td><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.html#Duration">Duration</a></code>)</td></tr><tr><td></td><td class="fieldArg">symbol</td><td><span class="undocumented">Undocumented</span> (type: <code>str</code>)</td></tr></table></div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  <a name="cns_analytics.timeseries.trend.SeriesTrendStability.series">
+    
+  </a>
+  <a name="series">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">series</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  <a name="cns_analytics.timeseries.trend.SeriesTrendStability.window_backward">
+    
+  </a>
+  <a name="window_backward">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">window_backward</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  <a name="cns_analytics.timeseries.trend.SeriesTrendStability.pointer">
+    
+  </a>
+  <a name="pointer">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">pointer</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  <a name="cns_analytics.timeseries.trend.SeriesTrendStability.symbol">
+    
+  </a>
+  <a name="symbol">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">symbol</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod private">
+  
+  <a name="cns_analytics.timeseries.trend.SeriesTrendStability._is_series_stable">
+    
+  </a>
+  <a name="_is_series_stable">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_is_series_stable</span>(self, series, frame, threshold):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">series</td><td><span class="undocumented">Undocumented</span> (type: <code>TimeSeries</code>)</td></tr><tr><td></td><td class="fieldArg">frame</td><td><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.html#Duration">Duration</a></code>)</td></tr><tr><td></td><td class="fieldArg">threshold</td><td><span class="undocumented">Undocumented</span> (type: <code>float</code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.trend.SeriesTrendStability.is_past_stable">
+    
+  </a>
+  <a name="is_past_stable">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">is_past_stable</span>(self, threshold):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Returns whether 90'th percentile of difference of trend and past series is smaller
+than threshold<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">threshold</td><td><span class="undocumented">Undocumented</span> (type: <code>float</code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.trend.SeriesTrendStability.get_future_stability">
+    
+  </a>
+  <a name="get_future_stability">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_future_stability</span>(self, threshold):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Returns duration while price didn't fall below threshold from running high<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">threshold</td><td><span class="undocumented">Undocumented</span> (type: <code>float</code>)</td></tr></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cns_analytics, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> 21.2.2 at 2021-09-14 11:42:58.
+      </address>
+
+    </div>
+
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

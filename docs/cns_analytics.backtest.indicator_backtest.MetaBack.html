@@ -1,0 +1,667 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cns_analytics.backtest.indicator_backtest.MetaBack : API documentation</title>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header navbar-brand">
+          cns_analytics
+          <a href="index.html">API Documentation</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code><code><a href="cns_analytics.html">cns_analytics</a></code>.<code><a href="cns_analytics.backtest.html">backtest</a></code>.<code><a href="cns_analytics.backtest.indicator_backtest.html">indicator_backtest</a></code>.<code><a href="cns_analytics.backtest.indicator_backtest.MetaBack.html">MetaBack</a></code></code></h1>
+        <div id="showPrivate">
+          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+        </div>
+      </div>
+
+      <div class="categoryHeader">
+        class documentation
+      </div>
+
+      <div class="extrasDocstring">
+        <p><code><span class="py-keyword">class</span> <span class="py-defname">MetaBack</span>:</code></p>
+        <p><a href="classIndex.html#cns_analytics.backtest.indicator_backtest.MetaBack">View In Hierarchy</a></p>
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p class="undocumented">Undocumented</p></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id5">
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__">__init__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#positions">positions</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#prices">prices</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#open_money">open_money</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#iteration">iteration</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#time_mult">time_mult</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#bought_at">bought_at</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#sold_at">sold_at</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#rsi">rsi</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#macd_diff">macd_diff</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#buy">buy</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#sell">sell</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#get_revaluation">get_revaluation</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#set_prices">set_prices</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#calc_coef">calc_coef</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#should_close">should_close</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#should_open">should_open</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#run">run</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_loop_i">_loop_i</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_pre_open_reval">_pre_open_reval</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_finrez_results">_finrez_results</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_waiting_after_loss">_waiting_after_loss</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_tp_counter">_tp_counter</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_sl_counter">_sl_counter</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_coef">_coef</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_pos_coef">_pos_coef</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod">
+  
+  <a name="cns_analytics.backtest.indicator_backtest.MetaBack.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  <a name="cns_analytics.backtest.indicator_backtest.MetaBack.positions">
+    
+  </a>
+  <a name="positions">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">positions</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  <a name="cns_analytics.backtest.indicator_backtest.MetaBack.prices">
+    
+  </a>
+  <a name="prices">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">prices</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  <a name="cns_analytics.backtest.indicator_backtest.MetaBack.open_money">
+    
+  </a>
+  <a name="open_money">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">open_money</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div> (type: <code>int</code>)
+  </div>
+</div><div class="baseinstancevariable">
+  
+  <a name="cns_analytics.backtest.indicator_backtest.MetaBack.iteration">
+    
+  </a>
+  <a name="iteration">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">iteration</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div> (type: <code>int</code>)
+  </div>
+</div><div class="baseinstancevariable">
+  
+  <a name="cns_analytics.backtest.indicator_backtest.MetaBack.time_mult">
+    
+  </a>
+  <a name="time_mult">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">time_mult</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div> (type: <code>int</code>)
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  <a name="cns_analytics.backtest.indicator_backtest.MetaBack._loop_i">
+    
+  </a>
+  <a name="_loop_i">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_loop_i</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  <a name="cns_analytics.backtest.indicator_backtest.MetaBack._pre_open_reval">
+    
+  </a>
+  <a name="_pre_open_reval">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_pre_open_reval</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  <a name="cns_analytics.backtest.indicator_backtest.MetaBack.bought_at">
+    
+  </a>
+  <a name="bought_at">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">bought_at</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div> (type: <code>list</code>)
+  </div>
+</div><div class="baseinstancevariable">
+  
+  <a name="cns_analytics.backtest.indicator_backtest.MetaBack.sold_at">
+    
+  </a>
+  <a name="sold_at">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">sold_at</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div> (type: <code>list</code>)
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  <a name="cns_analytics.backtest.indicator_backtest.MetaBack._finrez_results">
+    
+  </a>
+  <a name="_finrez_results">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_finrez_results</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div> (type: <code>list</code>)
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  <a name="cns_analytics.backtest.indicator_backtest.MetaBack._waiting_after_loss">
+    
+  </a>
+  <a name="_waiting_after_loss">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_waiting_after_loss</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div> (type: <code>str</code>)
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  <a name="cns_analytics.backtest.indicator_backtest.MetaBack._tp_counter">
+    
+  </a>
+  <a name="_tp_counter">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_tp_counter</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div> (type: <code>int</code>)
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  <a name="cns_analytics.backtest.indicator_backtest.MetaBack._sl_counter">
+    
+  </a>
+  <a name="_sl_counter">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_sl_counter</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div> (type: <code>int</code>)
+  </div>
+</div><div class="baseinstancevariable">
+  
+  <a name="cns_analytics.backtest.indicator_backtest.MetaBack.rsi">
+    
+  </a>
+  <a name="rsi">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">rsi</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  <a name="cns_analytics.backtest.indicator_backtest.MetaBack.macd_diff">
+    
+  </a>
+  <a name="macd_diff">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">macd_diff</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.backtest.indicator_backtest.MetaBack.buy">
+    
+  </a>
+  <a name="buy">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">buy</span>(self, sec, qty):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">sec</td><td><span class="undocumented">Undocumented</span> (type: <code>str</code>)</td></tr><tr><td></td><td class="fieldArg">qty</td><td><span class="undocumented">Undocumented</span> (type: <code>float</code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.backtest.indicator_backtest.MetaBack.sell">
+    
+  </a>
+  <a name="sell">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">sell</span>(self, sec, qty):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">sec</td><td><span class="undocumented">Undocumented</span> (type: <code>str</code>)</td></tr><tr><td></td><td class="fieldArg">qty</td><td><span class="undocumented">Undocumented</span> (type: <code>float</code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.backtest.indicator_backtest.MetaBack.get_revaluation">
+    
+  </a>
+  <a name="get_revaluation">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_revaluation</span>(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.backtest.indicator_backtest.MetaBack.set_prices">
+    
+  </a>
+  <a name="set_prices">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">set_prices</span>(self, sec, px):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.backtest.indicator_backtest.MetaBack.calc_coef">
+    
+  </a>
+  <a name="calc_coef">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">calc_coef</span>(self, known_prices1, known_prices2):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  <a name="cns_analytics.backtest.indicator_backtest.MetaBack._coef">
+    
+  </a>
+  <a name="_coef">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_coef</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.backtest.indicator_backtest.MetaBack.should_close">
+    
+  </a>
+  <a name="should_close">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">should_close</span>(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.backtest.indicator_backtest.MetaBack.should_open">
+    
+  </a>
+  <a name="should_open">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">should_open</span>(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  <a name="cns_analytics.backtest.indicator_backtest.MetaBack._pos_coef">
+    
+  </a>
+  <a name="_pos_coef">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_pos_coef</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.backtest.indicator_backtest.MetaBack.run">
+    
+  </a>
+  <a name="run">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">run</span>(self, data):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cns_analytics, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> 21.2.2 at 2021-09-14 11:42:58.
+      </address>
+
+    </div>
+
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

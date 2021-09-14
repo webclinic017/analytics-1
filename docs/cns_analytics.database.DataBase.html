@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cns_analytics.database.DataBase : API documentation</title>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header navbar-brand">
+          cns_analytics
+          <a href="index.html">API Documentation</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code><code><a href="cns_analytics.html">cns_analytics</a></code>.<code><a href="cns_analytics.database.html">database</a></code>.<code><a href="cns_analytics.database.DataBase.html">DataBase</a></code></code></h1>
+        <div id="showPrivate">
+          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+        </div>
+      </div>
+
+      <div class="categoryHeader">
+        class documentation
+      </div>
+
+      <div class="extrasDocstring">
+        <p><code><span class="py-keyword">class</span> <span class="py-defname">DataBase</span>:</code></p>
+        <p><a href="classIndex.html#cns_analytics.database.DataBase">View In Hierarchy</a></p>
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p class="undocumented">Undocumented</p></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id26">
+  
+  <tr class="classmethod">
+    
+    <td>Async Class Method</td>
+    <td><code><a href="#start">start</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classmethod">
+    
+    <td>Class Method</td>
+    <td><code><a href="#set_default_exchange">set_default_exchange</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classmethod">
+    
+    <td>Class Method</td>
+    <td><code><a href="#get_default_exchange">get_default_exchange</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classmethod">
+    
+    <td>Async Class Method</td>
+    <td><code><a href="#check_conn">check_conn</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classmethod">
+    
+    <td>Async Class Method</td>
+    <td><code><a href="#get_exchange_id">get_exchange_id</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classmethod">
+    
+    <td>Async Class Method</td>
+    <td><code><a href="#get_symbol_id">get_symbol_id</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classmethod">
+    
+    <td>Async Class Method</td>
+    <td><code><a href="#get_all_symbols">get_all_symbols</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classmethod">
+    
+    <td>Async Class Method</td>
+    <td><code><a href="#create_symbol">create_symbol</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classmethod">
+    
+    <td>Async Class Method</td>
+    <td><code><a href="#create_exchange">create_exchange</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classmethod">
+    
+    <td>Async Class Method</td>
+    <td><code><a href="#drop_symbol">drop_symbol</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classmethod">
+    
+    <td>Async Class Method</td>
+    <td><code><a href="#get_ohlcs">get_ohlcs</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classmethod">
+    
+    <td>Async Class Method</td>
+    <td><code><a href="#get_interest_rates">get_interest_rates</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classmethod">
+    
+    <td>Async Class Method</td>
+    <td><code><a href="#get_open_interests">get_open_interests</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classmethod">
+    
+    <td>Async Class Method</td>
+    <td><code><a href="#get_market_volume">get_market_volume</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classmethod">
+    
+    <td>Class Method</td>
+    <td><code><a href="#dont_cache_ohlc">dont_cache_ohlc</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classmethod">
+    
+    <td>Class Method</td>
+    <td><code><a href="#clear_ohlc_cache">clear_ohlc_cache</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classmethod">
+    
+    <td>Class Method</td>
+    <td><code><a href="#get_conn">get_conn</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable private">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#_conn">_conn</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable private">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#_pk_cache">_pk_cache</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable private">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#_queries">_queries</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classvariable private">
+    
+    <td>Class Variable</td>
+    <td><code><a href="#_db_cache">_db_cache</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classmethod private">
+    
+    <td>Async Class Method</td>
+    <td><code><a href="#_fetch_by_symbol">_fetch_by_symbol</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="staticmethod private">
+    
+    <td>Static Method</td>
+    <td><code><a href="#_data_to_df">_data_to_df</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="baseclassvariable private">
+  
+  <a name="cns_analytics.database.DataBase._conn">
+    
+  </a>
+  <a name="_conn">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_conn</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseclassvariable private">
+  
+  <a name="cns_analytics.database.DataBase._pk_cache">
+    
+  </a>
+  <a name="_pk_cache">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_pk_cache</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div> (type: <code>dict</code>)
+  </div>
+</div><div class="baseclassvariable private">
+  
+  <a name="cns_analytics.database.DataBase._queries">
+    
+  </a>
+  <a name="_queries">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_queries</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div> (type: <code>dict</code>)
+  </div>
+</div><div class="baseclassvariable private">
+  
+  <a name="cns_analytics.database.DataBase._db_cache">
+    
+  </a>
+  <a name="_db_cache">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_db_cache</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div> (type: <code>dict</code>)
+  </div>
+</div><div class="baseclassmethod">
+  
+  <a name="cns_analytics.database.DataBase.start">
+    
+  </a>
+  <a name="start">
+    
+  </a>
+  <div class="functionHeader">
+    @classmethod<br />
+    <span class="py-keyword">async def</span> <span class="py-defname">start</span>(cls):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseclassmethod">
+  
+  <a name="cns_analytics.database.DataBase.set_default_exchange">
+    
+  </a>
+  <a name="set_default_exchange">
+    
+  </a>
+  <div class="functionHeader">
+    @classmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">set_default_exchange</span>(cls, exchange):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">exchange</td><td><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.Exchange.html">Exchange</a></code>)</td></tr></table></div>
+  </div>
+</div><div class="baseclassmethod">
+  
+  <a name="cns_analytics.database.DataBase.get_default_exchange">
+    
+  </a>
+  <a name="get_default_exchange">
+    
+  </a>
+  <div class="functionHeader">
+    @classmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">get_default_exchange</span>(cls):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseclassmethod">
+  
+  <a name="cns_analytics.database.DataBase.check_conn">
+    
+  </a>
+  <a name="check_conn">
+    
+  </a>
+  <div class="functionHeader">
+    @classmethod<br />
+    <span class="py-keyword">async def</span> <span class="py-defname">check_conn</span>(cls):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseclassmethod">
+  
+  <a name="cns_analytics.database.DataBase.get_exchange_id">
+    
+  </a>
+  <a name="get_exchange_id">
+    
+  </a>
+  <div class="functionHeader">
+    @classmethod<br />
+    <span class="py-keyword">async def</span> <span class="py-defname">get_exchange_id</span>(cls, exchange):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">exchange</td><td><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.Exchange.html">Exchange</a></code>)</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2"><span class="undocumented">Undocumented</span> (type: <code>int</code>)</td></tr></table></div>
+  </div>
+</div><div class="baseclassmethod">
+  
+  <a name="cns_analytics.database.DataBase.get_symbol_id">
+    
+  </a>
+  <a name="get_symbol_id">
+    
+  </a>
+  <div class="functionHeader">
+    @classmethod<br />
+    <span class="py-keyword">async def</span> <span class="py-defname">get_symbol_id</span>(cls, symbol):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">symbol</td><td><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.Symbol.html">Symbol</a></code>)</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2"><span class="undocumented">Undocumented</span> (type: <code>int</code>)</td></tr></table></div>
+  </div>
+</div><div class="baseclassmethod">
+  
+  <a name="cns_analytics.database.DataBase.get_all_symbols">
+    
+  </a>
+  <a name="get_all_symbols">
+    
+  </a>
+  <div class="functionHeader">
+    @classmethod<br />
+    <span class="py-keyword">async def</span> <span class="py-defname">get_all_symbols</span>(cls, exchange=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2"><span class="undocumented">Undocumented</span> (type: <code>List[<a href="cns_analytics.entities.Symbol.html">Symbol</a>]</code>)</td></tr></table></div>
+  </div>
+</div><div class="baseclassmethod">
+  
+  <a name="cns_analytics.database.DataBase.create_symbol">
+    
+  </a>
+  <a name="create_symbol">
+    
+  </a>
+  <div class="functionHeader">
+    @classmethod<br />
+    <span class="py-keyword">async def</span> <span class="py-defname">create_symbol</span>(cls, name, exchange):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">name</td><td><span class="undocumented">Undocumented</span></td></tr><tr><td></td><td class="fieldArg">exchange</td><td><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.Exchange.html">Exchange</a></code>)</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2"><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.Symbol.html">Symbol</a></code>)</td></tr></table></div>
+  </div>
+</div><div class="baseclassmethod">
+  
+  <a name="cns_analytics.database.DataBase.create_exchange">
+    
+  </a>
+  <a name="create_exchange">
+    
+  </a>
+  <div class="functionHeader">
+    @classmethod<br />
+    <span class="py-keyword">async def</span> <span class="py-defname">create_exchange</span>(cls, name):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseclassmethod">
+  
+  <a name="cns_analytics.database.DataBase.drop_symbol">
+    
+  </a>
+  <a name="drop_symbol">
+    
+  </a>
+  <div class="functionHeader">
+    @classmethod<br />
+    <span class="py-keyword">async def</span> <span class="py-defname">drop_symbol</span>(cls, symbol):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">symbol</td><td><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.Symbol.html">Symbol</a></code>)</td></tr></table></div>
+  </div>
+</div><div class="baseclassmethod">
+  
+  <a name="cns_analytics.database.DataBase.get_ohlcs">
+    
+  </a>
+  <a name="get_ohlcs">
+    
+  </a>
+  <div class="functionHeader">
+    @classmethod<br />@cache_db_request<br />
+    <span class="py-keyword">async def</span> <span class="py-defname">get_ohlcs</span>(cls, symbol, resolution='1h'):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">symbol</td><td><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.Symbol.html">Symbol</a></code>)</td></tr><tr><td></td><td class="fieldArg">resolution</td><td><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2"><span class="undocumented">Undocumented</span> (type: <code>pd.DataFrame</code>)</td></tr></table></div>
+  </div>
+</div><div class="baseclassmethod">
+  
+  <a name="cns_analytics.database.DataBase.get_interest_rates">
+    
+  </a>
+  <a name="get_interest_rates">
+    
+  </a>
+  <div class="functionHeader">
+    @classmethod<br />
+    <span class="py-keyword">async def</span> <span class="py-defname">get_interest_rates</span>(cls, symbol):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2"><span class="undocumented">Undocumented</span> (type: <code>pd.DataFrame</code>)</td></tr></table></div>
+  </div>
+</div><div class="baseclassmethod">
+  
+  <a name="cns_analytics.database.DataBase.get_open_interests">
+    
+  </a>
+  <a name="get_open_interests">
+    
+  </a>
+  <div class="functionHeader">
+    @classmethod<br />
+    <span class="py-keyword">async def</span> <span class="py-defname">get_open_interests</span>(cls, symbol):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2"><span class="undocumented">Undocumented</span> (type: <code>pd.DataFrame</code>)</td></tr></table></div>
+  </div>
+</div><div class="baseclassmethod">
+  
+  <a name="cns_analytics.database.DataBase.get_market_volume">
+    
+  </a>
+  <a name="get_market_volume">
+    
+  </a>
+  <div class="functionHeader">
+    @classmethod<br />
+    <span class="py-keyword">async def</span> <span class="py-defname">get_market_volume</span>(cls, symbol):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2"><span class="undocumented">Undocumented</span> (type: <code>pd.DataFrame</code>)</td></tr></table></div>
+  </div>
+</div><div class="baseclassmethod private">
+  
+  <a name="cns_analytics.database.DataBase._fetch_by_symbol">
+    
+  </a>
+  <a name="_fetch_by_symbol">
+    
+  </a>
+  <div class="functionHeader">
+    @classmethod<br />
+    <span class="py-keyword">async def</span> <span class="py-defname">_fetch_by_symbol</span>(cls, query_name, symbol):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">query_name</td><td><span class="undocumented">Undocumented</span></td></tr><tr><td></td><td class="fieldArg">symbol</td><td><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.Symbol.html">Symbol</a></code>)</td></tr></table></div>
+  </div>
+</div><div class="basestaticmethod private">
+  
+  <a name="cns_analytics.database.DataBase._data_to_df">
+    
+  </a>
+  <a name="_data_to_df">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_data_to_df</span>(data, columns):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseclassmethod">
+  
+  <a name="cns_analytics.database.DataBase.dont_cache_ohlc">
+    
+  </a>
+  <a name="dont_cache_ohlc">
+    
+  </a>
+  <div class="functionHeader">
+    @classmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">dont_cache_ohlc</span>(cls):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseclassmethod">
+  
+  <a name="cns_analytics.database.DataBase.clear_ohlc_cache">
+    
+  </a>
+  <a name="clear_ohlc_cache">
+    
+  </a>
+  <div class="functionHeader">
+    @classmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">clear_ohlc_cache</span>(cls):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseclassmethod">
+  
+  <a name="cns_analytics.database.DataBase.get_conn">
+    
+  </a>
+  <a name="get_conn">
+    
+  </a>
+  <div class="functionHeader">
+    @classmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">get_conn</span>(cls):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2"><span class="undocumented">Undocumented</span> (type: <code>asyncpg.Connection</code>)</td></tr></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cns_analytics, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> 21.2.2 at 2021-09-09 22:20:53.
+      </address>
+
+    </div>
+
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

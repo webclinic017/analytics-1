@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cns_analytics.timeseries.addons.mask.MaskAddon : API documentation</title>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header navbar-brand">
+          cns_analytics
+          <a href="index.html">API Documentation</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code><code><a href="cns_analytics.html">cns_analytics</a></code>.<code><a href="cns_analytics.timeseries.html">timeseries</a></code>.<code><a href="cns_analytics.timeseries.addons.html">addons</a></code>.<code><a href="cns_analytics.timeseries.addons.mask.html">mask</a></code>.<code><a href="cns_analytics.timeseries.addons.mask.MaskAddon.html">MaskAddon</a></code></code></h1>
+        <div id="showPrivate">
+          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+        </div>
+      </div>
+
+      <div class="categoryHeader">
+        class documentation
+      </div>
+
+      <div class="extrasDocstring">
+        <p><code><span class="py-keyword">class</span> <span class="py-defname">MaskAddon</span>:</code></p>
+        <p><a href="classIndex.html#cns_analytics.timeseries.addons.mask.MaskAddon">View In Hierarchy</a></p>
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p class="undocumented">Undocumented</p></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id68">
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__">__init__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#ts">ts</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#drop_from_local_high">drop_from_local_high</a></code></td>
+    <td><span>Mask is true when price dropped more than drop_pts or drop_pct*price from local high. Local high is calculated as max price in window. drop_pts is prioritized.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#trending">trending</a></code></td>
+    <td><span>Mask is true when previous <code>step</code> steps were going at specified direction (up/down). In case <code>trend_size</code> is Duration, than previous <code>trend_size</code> calendar days are taken as window, not trading days.</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#below_line">below_line</a></code></td>
+    <td><span>Mask is true when price below <code>line</code></span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#above_line">above_line</a></code></td>
+    <td><span>Mask is true when price above <code>line</code></span></td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#random_like">random_like</a></code></td>
+    <td><span>Returns randomly shifted <code>another_mask</code></span></td>
+  </tr><tr class="staticmethod">
+    
+    <td>Static Method</td>
+    <td><code><a href="#random_dropout">random_dropout</a></code></td>
+    <td><span>Returns copy of <code>another_mask</code> with some true values set to false :param another_mask: Mask to copy :param keep: How many true values to keep (from 0 to 1)</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#plot">plot</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.addons.mask.MaskAddon.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, ts):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">ts</td><td><span class="undocumented">Undocumented</span> (type: <code>TimeSeries</code>)</td></tr></table></div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  <a name="cns_analytics.timeseries.addons.mask.MaskAddon.ts">
+    
+  </a>
+  <a name="ts">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">ts</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div> (type: <code>TimeSeries</code>)
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.addons.mask.MaskAddon.drop_from_local_high">
+    
+  </a>
+  <a name="drop_from_local_high">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">drop_from_local_high</span>(self, window, drop_pts=None, drop_pct=None, symbol=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Mask is true when price dropped more than drop_pts or drop_pct*price from local high.
+Local high is calculated as max price in window.
+drop_pts is prioritized.<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">window</td><td><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.html#Duration">Duration</a></code>)</td></tr><tr><td></td><td class="fieldArg">drop_pts</td><td><span class="undocumented">Undocumented</span> (type: <code>float</code>)</td></tr><tr><td></td><td class="fieldArg">drop_pct</td><td><span class="undocumented">Undocumented</span> (type: <code>float</code>)</td></tr><tr><td></td><td class="fieldArg">symbol</td><td><span class="undocumented">Undocumented</span> (type: <code>Union[<a href="cns_analytics.entities.Symbol.html">Symbol</a>, str]</code>)</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2"><span class="undocumented">Undocumented</span> (type: <code>np.ndarray</code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.addons.mask.MaskAddon.trending">
+    
+  </a>
+  <a name="trending">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">trending</span>(self, trend_size, step='1d', direction=Direction.UP, symbol=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Mask is true when previous <code>step</code> steps were going at specified direction (up/down).
+In case <code>trend_size</code> is Duration, than previous <code>trend_size</code> calendar days
+are taken as window, not trading days.<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">trend_size</td><td><span class="undocumented">Undocumented</span> (type: <code>Union[<a href="cns_analytics.entities.html#Duration">Duration</a>, int]</code>)</td></tr><tr><td></td><td class="fieldArg">step</td><td><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.html#Duration">Duration</a></code>)</td></tr><tr><td></td><td class="fieldArg">direction</td><td><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.Direction.html">Direction</a></code>)</td></tr><tr><td></td><td class="fieldArg">symbol</td><td><span class="undocumented">Undocumented</span> (type: <code>Union[<a href="cns_analytics.entities.Symbol.html">Symbol</a>, str]</code>)</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2"><span class="undocumented">Undocumented</span> (type: <code>np.ndarray</code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.addons.mask.MaskAddon.below_line">
+    
+  </a>
+  <a name="below_line">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">below_line</span>(self, line, symbol=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Mask is true when price below <code>line</code><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">line</td><td><span class="undocumented">Undocumented</span> (type: <code>Union[float, np.ndarray, pd.DataFrame, TimeSeries]</code>)</td></tr><tr><td></td><td class="fieldArg">symbol</td><td><span class="undocumented">Undocumented</span> (type: <code>Union[<a href="cns_analytics.entities.Symbol.html">Symbol</a>, str]</code>)</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2"><span class="undocumented">Undocumented</span> (type: <code>np.ndarray</code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.addons.mask.MaskAddon.above_line">
+    
+  </a>
+  <a name="above_line">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">above_line</span>(self, line, symbol=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Mask is true when price above <code>line</code><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">line</td><td><span class="undocumented">Undocumented</span> (type: <code>Union[float, np.ndarray, pd.DataFrame, TimeSeries]</code>)</td></tr><tr><td></td><td class="fieldArg">symbol</td><td><span class="undocumented">Undocumented</span> (type: <code>Union[<a href="cns_analytics.entities.Symbol.html">Symbol</a>, str]</code>)</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2"><span class="undocumented">Undocumented</span> (type: <code>np.ndarray</code>)</td></tr></table></div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  <a name="cns_analytics.timeseries.addons.mask.MaskAddon.random_like">
+    
+  </a>
+  <a name="random_like">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">random_like</span>(another_mask):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Returns randomly shifted <code>another_mask</code><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">another_mask</td><td><span class="undocumented">Undocumented</span> (type: <code>np.ndarray</code>)</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2"><span class="undocumented">Undocumented</span> (type: <code>np.ndarray</code>)</td></tr></table></div>
+  </div>
+</div><div class="basestaticmethod">
+  
+  <a name="cns_analytics.timeseries.addons.mask.MaskAddon.random_dropout">
+    
+  </a>
+  <a name="random_dropout">
+    
+  </a>
+  <div class="functionHeader">
+    @staticmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">random_dropout</span>(another_mask, keep=0.2):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Returns copy of <code>another_mask</code> with some true values set to false
+:param another_mask: Mask to copy
+:param keep: How many true values to keep (from 0 to 1)<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">another_mask</td><td><span class="undocumented">Undocumented</span> (type: <code>np.ndarray</code>)</td></tr><tr><td></td><td class="fieldArg">keep</td><td><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2"><span class="undocumented">Undocumented</span> (type: <code>np.ndarray</code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.addons.mask.MaskAddon.plot">
+    
+  </a>
+  <a name="plot">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot</span>(self, mask, symbol=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">mask</td><td><span class="undocumented">Undocumented</span></td></tr><tr><td></td><td class="fieldArg">symbol</td><td><span class="undocumented">Undocumented</span> (type: <code>Union[<a href="cns_analytics.entities.Symbol.html">Symbol</a>, str]</code>)</td></tr></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cns_analytics, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> 21.2.2 at 2021-09-14 11:42:58.
+      </address>
+
+    </div>
+
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

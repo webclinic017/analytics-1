@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cns_analytics.utils.fast_ta : API documentation</title>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header navbar-brand">
+          cns_analytics
+          <a href="index.html">API Documentation</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="module"><code><code><a href="cns_analytics.html">cns_analytics</a></code>.<code><a href="cns_analytics.utils.html">utils</a></code>.<code><a href="cns_analytics.utils.fast_ta.html">fast_ta</a></code></code></h1>
+        <div id="showPrivate">
+          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+        </div>
+      </div>
+
+      <div class="categoryHeader">
+        module documentation
+      </div>
+
+      <div class="extrasDocstring">
+        
+        <p></p>
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p class="undocumented">Undocumented</p></div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id85">
+  
+  <tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#macd">macd</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#rolling_window">rolling_window</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#sma">sma</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#cci">cci</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#rsi">rsi</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_ewma">_ewma</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_ewma_infinite_hist">_ewma_infinite_hist</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_ema">_ema</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function private">
+    
+    <td>Function</td>
+    <td><code><a href="#_mad">_mad</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basefunction private">
+  
+  <a name="cns_analytics.utils.fast_ta._ewma">
+    
+  </a>
+  <a name="_ewma">
+    
+  </a>
+  <div class="functionHeader">
+    @numba.jit((numba.float64[:], numba.int64), nopython=True, nogil=True)<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_ewma</span>(arr_in, window):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basefunction private">
+  
+  <a name="cns_analytics.utils.fast_ta._ewma_infinite_hist">
+    
+  </a>
+  <a name="_ewma_infinite_hist">
+    
+  </a>
+  <div class="functionHeader">
+    @numba.jit((numba.float64[:], numba.int64), nopython=True, nogil=True)<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_ewma_infinite_hist</span>(arr_in, window):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basefunction private">
+  
+  <a name="cns_analytics.utils.fast_ta._ema">
+    
+  </a>
+  <a name="_ema">
+    
+  </a>
+  <div class="functionHeader">
+    @numba.njit<br />
+    <span class="py-keyword">def</span> <span class="py-defname">_ema</span>(arr, period, alpha=False):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">arr</td><td><span class="undocumented">Undocumented</span></td></tr><tr><td></td><td class="fieldArg">period</td><td><span class="undocumented">Undocumented</span></td></tr><tr><td></td><td class="fieldArg">alpha</td><td><span class="undocumented">Undocumented</span> (type: <code>Union[float, bool]</code>)</td></tr></table></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cns_analytics.utils.fast_ta.macd">
+    
+  </a>
+  <a name="macd">
+    
+  </a>
+  <div class="functionHeader">
+    @numba.jit((numba.float64[:], numba.int64, numba.int64, numba.int64),
+    nopython=True, nogil=True)<br />
+    <span class="py-keyword">def</span> <span class="py-defname">macd</span>(s, window_slow, window_fast, window_sign):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basefunction private">
+  
+  <a name="cns_analytics.utils.fast_ta._mad">
+    
+  </a>
+  <a name="_mad">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">_mad</span>(x):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cns_analytics.utils.fast_ta.rolling_window">
+    
+  </a>
+  <a name="rolling_window">
+    
+  </a>
+  <div class="functionHeader">
+    @numba.jit(nopython=True)<br />
+    <span class="py-keyword">def</span> <span class="py-defname">rolling_window</span>(a, window):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cns_analytics.utils.fast_ta.sma">
+    
+  </a>
+  <a name="sma">
+    
+  </a>
+  <div class="functionHeader">
+    @numba.njit<br />
+    <span class="py-keyword">def</span> <span class="py-defname">sma</span>(arr, period):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cns_analytics.utils.fast_ta.cci">
+    
+  </a>
+  <a name="cci">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">cci</span>(df_high, df_low, df_close, period=20, scaling=0.015):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  <a name="cns_analytics.utils.fast_ta.rsi">
+    
+  </a>
+  <a name="rsi">
+    
+  </a>
+  <div class="functionHeader">
+    @numba.njit<br />
+    <span class="py-keyword">def</span> <span class="py-defname">rsi</span>(df_close, period=14):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cns_analytics, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> 21.2.2 at 2021-09-14 11:42:58.
+      </address>
+
+    </div>
+
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

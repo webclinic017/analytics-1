@@ -1,0 +1,1535 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>cns_analytics.timeseries.timeseries.TimeSeries : API documentation</title>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header navbar-brand">
+          cns_analytics
+          <a href="index.html">API Documentation</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 class="class"><code><code><a href="cns_analytics.html">cns_analytics</a></code>.<code><a href="cns_analytics.timeseries.html">timeseries</a></code>.<code><a href="cns_analytics.timeseries.timeseries.html">timeseries</a></code>.<code><a href="cns_analytics.timeseries.timeseries.TimeSeries.html">TimeSeries</a></code></code></h1>
+        <div id="showPrivate">
+          <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+        </div>
+      </div>
+
+      <div class="categoryHeader">
+        class documentation
+      </div>
+
+      <div class="extrasDocstring">
+        <p><code><span class="py-keyword">class</span> <span class="py-defname">TimeSeries</span>:</code></p><p>Known subclasses: <code><a href="cns_analytics.timeseries.spread.Spread.html">cns_analytics.timeseries.spread.Spread</a></code></p>
+        <p><a href="classIndex.html#cns_analytics.timeseries.timeseries.TimeSeries">View In Hierarchy</a></p>
+      </div>
+
+      <div class="moduleDocstring">
+        <div><p>Represents time series with one or multiple symbols</p>
+<div class="rst-line-block">
+<div class="rst-line">Uses concept of frame for backtest.</div>
+<div class="rst-line">Frame allows to hide "future" information from backtest, or to test stability of assumption
+by building it inside the frame and then testing it outside.</div>
+</div>
+</div>
+      </div>
+
+      <div id="splitTables">
+        <table class="children sortable" id="id79">
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__init__">__init__</a></code></td>
+    <td><span>Initializes TimeSeries</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#mask">mask</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#optimize">optimize</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#fix">fix</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="classmethod">
+    
+    <td>Class Method</td>
+    <td><code><a href="#from_df">from_df</a></code></td>
+    <td><span>Creates TimeSeries from pandas DataFrame</span></td>
+  </tr><tr class="method">
+    
+    <td>Async Method</td>
+    <td><code><a href="#load">load</a></code></td>
+    <td><span>Loads prices from database</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#set_frame">set_frame</a></code></td>
+    <td><span>Changes effective range for most functions</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#get_frame">get_frame</a></code></td>
+    <td><span>Returns currently applied frame</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#shift_frame">shift_frame</a></code></td>
+    <td><span>Shifts frame start and end</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#context_frame">context_frame</a></code></td>
+    <td><span>Saves current frame, sets new one, then restores old one back</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#exclude_symbol">exclude_symbol</a></code></td>
+    <td><span>Excludes symbol from time series</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#include_symbol">include_symbol</a></code></td>
+    <td><span>Includes symbol back to time series</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#get_symbols">get_symbols</a></code></td>
+    <td><span>Returns all not excluded symbols</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#scale_mean">scale_mean</a></code></td>
+    <td><span>Scales symbols to match first symbol's mean price inside frame</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#scale_running">scale_running</a></code></td>
+    <td><span>Scale symbols to match first symbol's running mean inside frame</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#scale_ols">scale_ols</a></code></td>
+    <td><span>Scales all symbols using OLS regression with first symbol inside frame</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#get_raw_df">get_raw_df</a></code></td>
+    <td><span>Returns all data disregarding frame</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#get_framed_df">get_framed_df</a></code></td>
+    <td><span>Returns framed data</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#get_df">get_df</a></code></td>
+    <td><span>Returns data</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#get_frame_iterator">get_frame_iterator</a></code></td>
+    <td><span>Iterates over time series shifting frame along the way</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#get_adf_test">get_adf_test</a></code></td>
+    <td><span>Tests series for stationarity</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#get_hurst_exponent">get_hurst_exponent</a></code></td>
+    <td><span>Returns the Hurst Exponent of the time series vector ts</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#get_correlation">get_correlation</a></code></td>
+    <td><span>Returns correlation between two symbols</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#get_autocorrelation">get_autocorrelation</a></code></td>
+    <td><span>Returns autocorrelation for one symbol</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#get_volatility">get_volatility</a></code></td>
+    <td><span>Returns smoothed volatility of a chosen symbol</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#dropna">dropna</a></code></td>
+    <td><span>Remove NaN values from dataframe</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#get_crosses">get_crosses</a></code></td>
+    <td><span>Returns timestamps when specified value was crossed for given symbol</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#get_macd_diff">get_macd_diff</a></code></td>
+    <td><span>Returns MACD indicator for selected symbol</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#get_percentile">get_percentile</a></code></td>
+    <td><span>Returns percentile for one symbol in underlying data</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#set_pointer">set_pointer</a></code></td>
+    <td><span>Sets pointer</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#get_pointer">get_pointer</a></code></td>
+    <td><span>Returns pointer</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#get_last_timestamp">get_last_timestamp</a></code></td>
+    <td><span>Returns timestamp of last record</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#shift_pointer">shift_pointer</a></code></td>
+    <td><span>Shifts pointer</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#get_before_pointer">get_before_pointer</a></code></td>
+    <td><span>Returns timeseries before current pointer with specified window</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#get_after_pointer">get_after_pointer</a></code></td>
+    <td><span>Returns timeseries after current pointer with specified window</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#get_around_pointer">get_around_pointer</a></code></td>
+    <td><span>Returns timeseries around current pointer with specified windows</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#get_trend">get_trend</a></code></td>
+    <td><span>Finds trend in timeseries and returns it</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#remove_trend">remove_trend</a></code></td>
+    <td><span>Finds trend in timeseries and removes it from data</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#get_datetime_iterator">get_datetime_iterator</a></code></td>
+    <td><span>Returns datetime iterator for current dataframe</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#resample">resample</a></code></td>
+    <td><span>Changes time step of timeseries, irreversible if inplace</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#get_triangle">get_triangle</a></code></td>
+    <td><span class="undocumented">No summary</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#get_drop">get_drop</a></code></td>
+    <td><span>Returns drop according to provided logic</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#plot">plot</a></code></td>
+    <td><span>Plots specified or all symbols</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#expect_one_symbol">expect_one_symbol</a></code></td>
+    <td><span>Raises Exception if no symbol is passed and timeseries has one or more symbol otherwise returns passed symbol, or that only symbol, that timeseries has</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__setitem__">__setitem__</a></code></td>
+    <td><span>Updates/sets underlying data key by value</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__getitem__">__getitem__</a></code></td>
+    <td><span>Returns new timeseries from underling's data item</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__iter__">__iter__</a></code></td>
+    <td><span>Creates iterator for underlying pandas data frame</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__bool__">__bool__</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__str__">__str__</a></code></td>
+    <td><span>Represents underlying data as string</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__len__">__len__</a></code></td>
+    <td><span>Length of underlying data</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__mul__">__mul__</a></code></td>
+    <td><span>Multiplies timeseries by timeseries, float, numpy array or pandas series/frame</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__add__">__add__</a></code></td>
+    <td><span>Adds timeseries, float, numpy array or pandas series/frame to timeseries</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__sub__">__sub__</a></code></td>
+    <td><span>Subtract timeseries, float, numpy array or pandas series/frame from timeseries</span></td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#__truediv__">__truediv__</a></code></td>
+    <td><span>Divides timeseries by timeseries, float, numpy array or pandas series/frame</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_frame_start">_frame_start</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_frame_end">_frame_end</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#__symbols">__symbols</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_df">_df</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_excluded_symbols">_excluded_symbols</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_figure">_figure</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable private">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#_pointer">_pointer</a></code></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+</table>
+        
+
+          
+      </div>
+
+      <div id="childList">
+
+        <div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.__init__">
+    
+  </a>
+  <a name="__init__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, *symbols):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="cns_analytics.timeseries.spread.Spread.html">cns_analytics.timeseries.spread.Spread</a></code></div>
+    
+    <div>Initializes TimeSeries<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">symbols</td><td>List of symbols to load data from (type: <code>Union[<a href="cns_analytics.entities.Symbol.html">Symbol</a>, str]</code>)</td></tr></table></div>
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries._frame_start">
+    
+  </a>
+  <a name="_frame_start">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_frame_start</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries._frame_end">
+    
+  </a>
+  <a name="_frame_end">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_frame_end</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.__symbols">
+    
+  </a>
+  <a name="__symbols">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">__symbols</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries._df">
+    
+  </a>
+  <a name="_df">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_df</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries._excluded_symbols">
+    
+  </a>
+  <a name="_excluded_symbols">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_excluded_symbols</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries._figure">
+    
+  </a>
+  <a name="_figure">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_figure</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseinstancevariable private">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries._pointer">
+    
+  </a>
+  <a name="_pointer">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">_pointer</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.mask">
+    
+  </a>
+  <a name="mask">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">mask</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.optimize">
+    
+  </a>
+  <a name="optimize">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">optimize</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.fix">
+    
+  </a>
+  <a name="fix">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">fix</span> =
+    
+  </div>
+  <div class="functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="baseclassmethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.from_df">
+    
+  </a>
+  <a name="from_df">
+    
+  </a>
+  <div class="functionHeader">
+    @classmethod<br />
+    <span class="py-keyword">def</span> <span class="py-defname">from_df</span>(cls, df):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="cns_analytics.timeseries.spread.Spread.html">cns_analytics.timeseries.spread.Spread</a></code></div>
+    
+    <div>Creates TimeSeries from pandas DataFrame<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">df</td><td>DataFrame to create TimeSeries from (type: <code>pd.DataFrame</code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.load">
+    
+  </a>
+  <a name="load">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">async def</span> <span class="py-defname">load</span>(self, start=None, end=None, resolution='1h'):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="cns_analytics.timeseries.spread.Spread.html">cns_analytics.timeseries.spread.Spread</a></code></div>
+    
+    <div>Loads prices from database<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">start</td><td>First date to keep after loading (type: <code>Optional[str]</code>)</td></tr><tr><td></td><td class="fieldArg">end</td><td>Last date to keep after loading (type: <code>Optional[str]</code>)</td></tr><tr><td></td><td class="fieldArg">resolution</td><td>Can be any of 1m/5m/15m/1h/1d</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.set_frame">
+    
+  </a>
+  <a name="set_frame">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">set_frame</span>(self, start=None, end=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>Changes effective range for most functions</p>
+<p>Used for backtesting, when data is revealed continuously</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">start</td><td>Start of frame (type: <code>Optional[Union[str, datetime]]</code>)</td></tr><tr><td></td><td class="fieldArg">end</td><td>End of frame (type: <code>Optional[Union[str, datetime]]</code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.get_frame">
+    
+  </a>
+  <a name="get_frame">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_frame</span>(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Returns currently applied frame<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">Applied frame start and end (type: <code>[Optional[datetime], Optional[datetime]]</code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.shift_frame">
+    
+  </a>
+  <a name="shift_frame">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">shift_frame</span>(self, step, keep_start=False):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Shifts frame start and end<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">step</td><td>Time to shift frame start and end by (type: <code>timedelta</code>)</td></tr><tr><td></td><td class="fieldArg">keep_start</td><td>Whether to skip shifting start (type: <code>bool</code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.context_frame">
+    
+  </a>
+  <a name="context_frame">
+    
+  </a>
+  <div class="functionHeader">
+    @contextlib.contextmanager<br />
+    <span class="py-keyword">def</span> <span class="py-defname">context_frame</span>(self, start, end):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>Saves current frame, sets new one, then restores old one back</p>
+<p>It's a context manager, usage:</p>
+<pre class="py-doctest">
+spread.set_frame(<span class="py-string">"2020-10-01"</span>, <span class="py-string">"2020-12-01"</span>)
+<span class="py-comment"># here frame is "2020-10-01", "2020-12-01"</span>
+
+<span class="py-keyword">with</span> spread.context_frame(<span class="py-string">"2021-01-01"</span>, <span class="py-string">"2021-02-01"</span>):
+    <span class="py-comment"># here frame is "2021-01-01", "2021-02-01"</span>
+
+<span class="py-comment"># here frame is "2020-10-01", "2020-12-01" again</span></pre><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">start</td><td>New frame start (type: <code>Optional[Union[str, datetime]]</code>)</td></tr><tr><td></td><td class="fieldArg">end</td><td>New frame end (type: <code>Optional[Union[str, datetime]]</code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.exclude_symbol">
+    
+  </a>
+  <a name="exclude_symbol">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">exclude_symbol</span>(self, symbol):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>Excludes symbol from time series</p>
+<p>Data is preserved, but most methods will skip excluded symbols</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">symbol</td><td>Symbol to exclude</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.include_symbol">
+    
+  </a>
+  <a name="include_symbol">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">include_symbol</span>(self, symbol):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Includes symbol back to time series<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">symbol</td><td>Symbol to include</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.get_symbols">
+    
+  </a>
+  <a name="get_symbols">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_symbols</span>(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Returns all not excluded symbols<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">List of active symbols</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.scale_mean">
+    
+  </a>
+  <a name="scale_mean">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">scale_mean</span>(self, *symbols, dry_run=False):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>Scales symbols to match first symbol's mean price inside frame</p>
+<div class="rst-line-block">
+<div class="rst-line">For example take timeseries with two price series:</div>
+<div class="rst-line">A = [1, 2, 3, 4, 4, 4, 5]</div>
+<div class="rst-line">B = [5, 7, 7, 9, 10, 10, 10]</div>
+<div class="rst-line">Mean for A is 3.29</div>
+<div class="rst-line">Mean for B is 8.29</div>
+<div class="rst-line">Coefficient for B is [A mean] / [B mean] = 3.29 / 8.29 = 0.397</div>
+<div class="rst-line">New B = B * 0.397 = [1.98, 2.78, 2.78, 3.57, 3.97, 3.97, 3.97]</div>
+</div>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">symbols</td><td>List of symbols to scale (type: <code>Optional[str]</code>)</td></tr><tr><td></td><td class="fieldArg">dry_run</td><td>Don't scale, only return coefs</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">List of scale coefficient (type: <code>Dict[str, float]</code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.scale_running">
+    
+  </a>
+  <a name="scale_running">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">scale_running</span>(self, period='30d'):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Scale symbols to match first symbol's running mean inside frame</div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.scale_ols">
+    
+  </a>
+  <a name="scale_ols">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">scale_ols</span>(self, *symbols, dry_run=False):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Scales all symbols using OLS regression with first symbol inside frame<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">symbols</td><td>List of symbols to scale (type: <code>Optional[str]</code>)</td></tr><tr><td></td><td class="fieldArg">dry_run</td><td>Don't scale, only return coefs</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">List of scale coefficient (type: <code>Dict[str, float]</code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.get_raw_df">
+    
+  </a>
+  <a name="get_raw_df">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_raw_df</span>(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Returns all data disregarding frame<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">Full DataFrame (type: <code>pd.DataFrame</code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.get_framed_df">
+    
+  </a>
+  <a name="get_framed_df">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_framed_df</span>(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Returns framed data<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">Framed DataFrame (type: <code>pd.DataFrame</code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.get_df">
+    
+  </a>
+  <a name="get_df">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_df</span>(self, framed):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Returns data<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">framed</td><td>Whether to frame return data (type: <code>bool</code>)</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">DataFrame (type: <code>pd.DataFrame</code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.get_frame_iterator">
+    
+  </a>
+  <a name="get_frame_iterator">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_frame_iterator</span>(self, frame_start, frame_end):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>Iterates over time series shifting frame along the way</p>
+<p>Frame is set to current row on every iteration</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">frame_start</td><td>Start of frame to iterate, won't be shifted (type: <code>str</code>)</td></tr><tr><td></td><td class="fieldArg">frame_end</td><td>End of frame to iterate, will shifted every iteration (type: <code>str</code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.get_adf_test">
+    
+  </a>
+  <a name="get_adf_test">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_adf_test</span>(self, symbol=None, max_lag=1):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Tests series for stationarity<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">symbol</td><td>Symbol to test (type: <code>str</code>)</td></tr><tr><td></td><td class="fieldArg">max_lag</td><td>Max lag for adf test (type: <code>int</code>)</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">Stationarity, key points and p-value (type: <code>tuple[float, Dict[str, float], float]</code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.get_hurst_exponent">
+    
+  </a>
+  <a name="get_hurst_exponent">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_hurst_exponent</span>(self, symbol=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>Returns the Hurst Exponent of the time series vector ts</p>
+<div class="rst-line-block">
+<div class="rst-line">0-0.5 Mean Reverting</div>
+<div class="rst-line">0.5 Random Work</div>
+<div class="rst-line">0.5-1 Trending</div>
+</div>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">symbol</td><td>Symbol to get exponent (type: <code>str</code>)</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">Hurst exponent (type: <code>float</code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.get_correlation">
+    
+  </a>
+  <a name="get_correlation">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_correlation</span>(self, *symbols, framed=True):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>Returns correlation between two symbols</p>
+<div class="rst-line-block">
+<div class="rst-line"><a class="rst-reference external" href="https://www.investopedia.com/terms/c/correlation.asp" target="_top">https://www.investopedia.com/terms/c/correlation.asp</a></div>
+<div class="rst-line">If there are more symbols in time series, than two must be selected by symbols param</div>
+</div>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">symbols</td><td>Optional two symbols to calculate corr. for (type: <code>str</code>)</td></tr><tr><td></td><td class="fieldArg">framed</td><td>Whether to frame underlying data</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">Correlation between two symbols</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.get_autocorrelation">
+    
+  </a>
+  <a name="get_autocorrelation">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_autocorrelation</span>(self, symbol=None, nlags=40):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>Returns autocorrelation for one symbol</p>
+<div class="rst-line-block">
+<div class="rst-line"><a class="rst-reference external" href="https://www.investopedia.com/terms/a/autocorrelation.asp" target="_top">https://www.investopedia.com/terms/a/autocorrelation.asp</a></div>
+<div class="rst-line">If there are more than one symbol in time series,</div>
+<div class="rst-line">than one must be selected by symbol param</div>
+</div>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">symbol</td><td>Optional symbol to calculate corr. for (type: <code>str</code>)</td></tr><tr><td></td><td class="fieldArg">nlags</td><td>Number of lags to calculate (type: <code>int</code>)</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">Autocorrelation for symbol</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.get_volatility">
+    
+  </a>
+  <a name="get_volatility">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_volatility</span>(self, symbol=None, sma=None, framed=True):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>Returns smoothed volatility of a chosen symbol</p>
+<p>If there is only one symbol you can omit "symbol" argument</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">symbol</td><td>Symbol to calculate volatility for (type: <code>str</code>)</td></tr><tr><td></td><td class="fieldArg">sma</td><td>Smoothing window size (type: <code>Union[str, pd.Timedelta, timedelta]</code>)</td></tr><tr><td></td><td class="fieldArg">framed</td><td>Whether to frame underlying data (type: <code>bool</code>)</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">Smoothed volatility pandas series</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.dropna">
+    
+  </a>
+  <a name="dropna">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">dropna</span>(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Remove NaN values from dataframe</div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.get_crosses">
+    
+  </a>
+  <a name="get_crosses">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_crosses</span>(self, value, symbol=None, framed=True):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>Returns timestamps when specified value was crossed for given symbol</p>
+<p>If there is only one symbol you can omit "symbol" argument</p>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">value</td><td>Crossing line (type: <code>float</code>)</td></tr><tr><td></td><td class="fieldArg">symbol</td><td>Symbol to find crosses for (type: <code>Union[<a href="cns_analytics.entities.Symbol.html">Symbol</a>, str]</code>)</td></tr><tr><td></td><td class="fieldArg">framed</td><td>Whether to frame underlying data (type: <code>bool</code>)</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">List of timestamps when crossing occurred (type: <code>pd.DatetimeIndex</code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.get_macd_diff">
+    
+  </a>
+  <a name="get_macd_diff">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_macd_diff</span>(self, window_slow, window_fast, window_sign, symbol=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Returns MACD indicator for selected symbol<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">window_slow</td><td>Slow window (type: <code>int</code>)</td></tr><tr><td></td><td class="fieldArg">window_fast</td><td>Fast window (type: <code>int</code>)</td></tr><tr><td></td><td class="fieldArg">window_sign</td><td>Sign window (type: <code>int</code>)</td></tr><tr><td></td><td class="fieldArg">symbol</td><td>Symbol to get MACD (type: <code>Union[<a href="cns_analytics.entities.Symbol.html">Symbol</a>, str]</code>)</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">MACD indicator series (type: <code>pd.Series</code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.get_percentile">
+    
+  </a>
+  <a name="get_percentile">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_percentile</span>(self, value, symbol=None, framed=True):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>Returns percentile for one symbol in underlying data</p>
+<div class="rst-line-block">
+<div class="rst-line">If value is a list, return type will be also list</div>
+<div class="rst-line">If there are many symbols in this timeseries, than one must be selected via symbol param</div>
+</div>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">value</td><td>Percentile value (type: <code>Union[float, List[float]]</code>)</td></tr><tr><td></td><td class="fieldArg">symbol</td><td>Select one of many symbols or skip if there is only one (type: <code>Union[<a href="cns_analytics.entities.Symbol.html">Symbol</a>, str]</code>)</td></tr><tr><td></td><td class="fieldArg">framed</td><td>Whether to frame underlying data (type: <code>bool</code>)</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">Percentile result as dataframe</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.set_pointer">
+    
+  </a>
+  <a name="set_pointer">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">set_pointer</span>(self, pointer):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Sets pointer<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">pointer</td><td><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.html#DateTime">DateTime</a></code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.get_pointer">
+    
+  </a>
+  <a name="get_pointer">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_pointer</span>(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Returns pointer</div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.get_last_timestamp">
+    
+  </a>
+  <a name="get_last_timestamp">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_last_timestamp</span>(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Returns timestamp of last record</div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.shift_pointer">
+    
+  </a>
+  <a name="shift_pointer">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">shift_pointer</span>(self, step):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Shifts pointer<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">step</td><td><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.html#Duration">Duration</a></code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.get_before_pointer">
+    
+  </a>
+  <a name="get_before_pointer">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_before_pointer</span>(self, window):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Returns timeseries before current pointer with specified window<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">window</td><td><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.html#Duration">Duration</a></code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.get_after_pointer">
+    
+  </a>
+  <a name="get_after_pointer">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_after_pointer</span>(self, window):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Returns timeseries after current pointer with specified window<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">window</td><td><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.html#Duration">Duration</a></code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.get_around_pointer">
+    
+  </a>
+  <a name="get_around_pointer">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_around_pointer</span>(self, window_before, window_after):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Returns timeseries around current pointer with specified windows<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">window_before</td><td><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.html#Duration">Duration</a></code>)</td></tr><tr><td></td><td class="fieldArg">window_after</td><td><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.html#Duration">Duration</a></code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.get_trend">
+    
+  </a>
+  <a name="get_trend">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_trend</span>(self, symbol=None, size=None, framed=False):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Finds trend in timeseries and returns it<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">symbol</td><td><span class="undocumented">Undocumented</span> (type: <code>Union[<a href="cns_analytics.entities.Symbol.html">Symbol</a>, str]</code>)</td></tr><tr><td></td><td class="fieldArg">size</td><td><span class="undocumented">Undocumented</span> (type: <code>int</code>)</td></tr><tr><td></td><td class="fieldArg">framed</td><td><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.remove_trend">
+    
+  </a>
+  <a name="remove_trend">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">remove_trend</span>(self, symbol=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Finds trend in timeseries and removes it from data<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">symbol</td><td><span class="undocumented">Undocumented</span> (type: <code>Union[<a href="cns_analytics.entities.Symbol.html">Symbol</a>, str]</code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.get_datetime_iterator">
+    
+  </a>
+  <a name="get_datetime_iterator">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_datetime_iterator</span>(self, step, framed=True, skip_start='0m'):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Returns datetime iterator for current dataframe<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">step</td><td><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.html#Duration">Duration</a></code>)</td></tr><tr><td></td><td class="fieldArg">framed</td><td><span class="undocumented">Undocumented</span></td></tr><tr><td></td><td class="fieldArg">skip_start</td><td><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.html#Duration">Duration</a></code>)</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2"><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.timeseries.timeseries.DateTimeIterator.html">DateTimeIterator</a></code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.resample">
+    
+  </a>
+  <a name="resample">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">resample</span>(self, dur, inplace=True):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Changes time step of timeseries, irreversible if inplace<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">dur</td><td><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.html#Duration">Duration</a></code>)</td></tr><tr><td></td><td class="fieldArg">inplace</td><td><span class="undocumented">Undocumented</span></td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.get_triangle">
+    
+  </a>
+  <a name="get_triangle">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_triangle</span>(self, symbol=None, outside_threshold=0.05):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p>Returns best triangle for this timeseries
+:param symbol: Symbol to work with
+:param outside_threshold: Max pct of points outside of upper or lower triangle lines</p>
+<blockquote>
+(each side is counted separately)</blockquote>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">symbol</td><td><span class="undocumented">Undocumented</span> (type: <code>Union[<a href="cns_analytics.entities.Symbol.html">Symbol</a>, str]</code>)</td></tr><tr><td></td><td class="fieldArg">outside_threshold</td><td><span class="undocumented">Undocumented</span></td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2"><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.Triangle.html">Triangle</a></code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.get_drop">
+    
+  </a>
+  <a name="get_drop">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">get_drop</span>(self, logic=DropLogic.SIMPLE, window=None, growth_by=None, growth_during=None, std_period='30d', std_limit=None, symbol=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Returns drop according to provided logic<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">logic</td><td><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.DropLogic.html">DropLogic</a></code>)</td></tr><tr><td></td><td class="fieldArg">window</td><td><span class="undocumented">Undocumented</span> (type: <code>Optional[<a href="cns_analytics.entities.html#Duration">Duration</a>]</code>)</td></tr><tr><td></td><td class="fieldArg">growth_by</td><td><span class="undocumented">Undocumented</span> (type: <code>Optional[float]</code>)</td></tr><tr><td></td><td class="fieldArg">growth_during</td><td><span class="undocumented">Undocumented</span> (type: <code>Optional[<a href="cns_analytics.entities.html#Duration">Duration</a>]</code>)</td></tr><tr><td></td><td class="fieldArg">std_period</td><td><span class="undocumented">Undocumented</span> (type: <code><a href="cns_analytics.entities.html#Duration">Duration</a></code>)</td></tr><tr><td></td><td class="fieldArg">std_limit</td><td><span class="undocumented">Undocumented</span> (type: <code>Optional[float]</code>)</td></tr><tr><td></td><td class="fieldArg">symbol</td><td><span class="undocumented">Undocumented</span> (type: <code>Optional[Union[<a href="cns_analytics.entities.Symbol.html">Symbol</a>, str]]</code>)</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2"><span class="undocumented">Undocumented</span> (type: <code>pd.Series</code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.plot">
+    
+  </a>
+  <a name="plot">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">plot</span>(self, *symbols, title=''):
+    
+  </div>
+  <div class="docstring functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="cns_analytics.timeseries.spread.Spread.html">cns_analytics.timeseries.spread.Spread</a></code></div>
+    
+    <div>Plots specified or all symbols<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">symbols</td><td><span class="undocumented">Undocumented</span> (type: <code>Union[<a href="cns_analytics.entities.Symbol.html">Symbol</a>, str]</code>)</td></tr><tr><td></td><td class="fieldArg">title</td><td><span class="undocumented">Undocumented</span> (type: <code>str</code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.expect_one_symbol">
+    
+  </a>
+  <a name="expect_one_symbol">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">expect_one_symbol</span>(self, symbol=None):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Raises Exception if no symbol is passed and timeseries has one or more symbol
+otherwise returns passed symbol, or that only symbol, that timeseries has<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">symbol</td><td><span class="undocumented">Undocumented</span> (type: <code>Optional[Union[<a href="cns_analytics.entities.Symbol.html">Symbol</a>, str]]</code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.__setitem__">
+    
+  </a>
+  <a name="__setitem__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__setitem__</span>(self, key, value):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Updates/sets underlying data key by value<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">key</td><td>Key to update/set</td></tr><tr><td></td><td class="fieldArg">value</td><td>New value</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.__getitem__">
+    
+  </a>
+  <a name="__getitem__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__getitem__</span>(self, item):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Returns new timeseries from underling's data item<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">New timeseries (type: <code><a href="cns_analytics.timeseries.timeseries.TimeSeries.html">TimeSeries</a></code>)</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.__iter__">
+    
+  </a>
+  <a name="__iter__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__iter__</span>(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Creates iterator for underlying pandas data frame<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">DataFrame iterator</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.__bool__">
+    
+  </a>
+  <a name="__bool__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__bool__</span>(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div><p class="undocumented">Undocumented</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.__str__">
+    
+  </a>
+  <a name="__str__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__str__</span>(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Represents underlying data as string<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">Underlying data as string</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.__len__">
+    
+  </a>
+  <a name="__len__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__len__</span>(self):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Length of underlying data<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">Number of points</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.__mul__">
+    
+  </a>
+  <a name="__mul__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__mul__</span>(self, other):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Multiplies timeseries by timeseries, float, numpy array or pandas series/frame<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">other</td><td>Multiplicand</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">Self</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.__add__">
+    
+  </a>
+  <a name="__add__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__add__</span>(self, other):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Adds timeseries, float, numpy array or pandas series/frame to timeseries<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">other</td><td>Addend</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">Self</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.__sub__">
+    
+  </a>
+  <a name="__sub__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__sub__</span>(self, other):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Subtract timeseries, float, numpy array or pandas series/frame from timeseries<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">other</td><td>Subtrahend</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">Self</td></tr></table></div>
+  </div>
+</div><div class="basemethod">
+  
+  <a name="cns_analytics.timeseries.timeseries.TimeSeries.__truediv__">
+    
+  </a>
+  <a name="__truediv__">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-keyword">def</span> <span class="py-defname">__truediv__</span>(self, other):
+    
+  </div>
+  <div class="docstring functionBody">
+    
+    
+    <div>Divides timeseries by timeseries, float, numpy array or pandas series/frame<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">other</td><td>Divisor</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">Self</td></tr></table></div>
+  </div>
+</div>
+
+      </div>
+      <address>
+        <a href="index.html">API Documentation</a> for cns_analytics, generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a> 21.2.2 at 2021-09-14 11:42:58.
+      </address>
+
+    </div>
+
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>
